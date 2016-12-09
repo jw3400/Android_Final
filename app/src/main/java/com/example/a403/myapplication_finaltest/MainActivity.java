@@ -59,63 +59,55 @@ public class MainActivity extends AppCompatActivity {
                     ch.start();
                     ch.setTextColor(Color.BLUE);
 
-                    bu1 = (Button) findViewById(R.id.button4);
-                    bu1.setOnClickListener(new View.OnClickListener() {
-
-                        @Override
-                        public void onClick(View view) {
-
-                            String input1 = e1.getText().toString();
-                            String input2 = e2.getText().toString();
-                            String input3 = e3.getText().toString();
-
-                            int result1;
-                            double result2;
-                            double result3;
-                            int result4;
-
-                            if (input1.equals("") || input2.equals("") || input3.equals("")) {
-                                Toast.makeText(getApplicationContext(),"인원을 입력하셔야 합니다.",Toast.LENGTH_SHORT).show();
-                            }
-                            else if(Integer.parseInt(input1.toString()) < 0 || Integer.parseInt(input2.toString()) < 0 || Integer.parseInt(input3.toString()) < 0) {
-                                Toast.makeText(getApplicationContext(),"양수를 입력하셔야 합니다.",Toast.LENGTH_SHORT).show();
-                            }
-                            else {
-
-                                result1 = Integer.parseInt(input1) + Integer.parseInt(input2) + Integer.parseInt(input3);
-                                label1.setText(result1);
-
-                                if (r1.isChecked()) {
-                                    result2 = (15000 * Double.parseDouble(input1)) + (12000 * Double.parseDouble(input2)) + (8000 * Double.parseDouble(input3));
-                                    result3 = result2 * 0.05;
-                                    result4 = Integer.parseInt(result3.toString());
-                                    label2.setText(result2);
-                                    label3.setText(result2 - result3);
-                                } else if(r2.isChecked()) {
-                                    result2 = (15000 * Double.parseDouble(input1)) + (12000 * Double.parseDouble(input2)) + (8000 * Double.parseDouble(input3));
-                                    result3 = result2 * 0.1;
-                                    label2.setText(result3);
-                                    label3.setText(result2 - result3);
-                                } else if(r3.isChecked()) {
-                                    result2 = (15000 * Double.parseDouble(input1)) + (12000 * Double.parseDouble(input2)) + (8000 * Double.parseDouble(input3));
-                                    result3 = result2 * 0.2;
-                                    label2.setText(result3);
-                                    label3.setText(result2 - result3);
-                                }
-
-                            }
-
-
-                        }
-                    });
                 }
-
             }
+        });
+        bu1 = (Button) findViewById(R.id.button4);
 
 
-    });
+        bu1.setOnClickListener(new View.OnClickListener()
 
+        {
 
+            @Override
+            public void onClick(View view) {
 
+                String input1 = e1.getText().toString();
+                String input2 = e2.getText().toString();
+                String input3 = e3.getText().toString();
 
+                int result1;
+                double result2;
+                double result3;
+
+                if (input1.equals("") || input2.equals("") || input3.equals("")) {
+                    Toast.makeText(getApplicationContext(), "인원을 입력하셔야 합니다.", Toast.LENGTH_SHORT).show();
+                } else if (Integer.parseInt(input1.toString()) < 0 || Integer.parseInt(input2.toString()) < 0 || Integer.parseInt(input3.toString()) < 0) {
+                    Toast.makeText(getApplicationContext(), "양수를 입력하셔야 합니다.", Toast.LENGTH_SHORT).show();
+                } else {
+
+                    result1 = Integer.parseInt(input1) + Integer.parseInt(input2) + Integer.parseInt(input3);
+                    label1.setText(result1);
+
+                    if (r1.isChecked()) {
+                        result2 = (15000 * Double.parseDouble(input1)) + (12000 * Double.parseDouble(input2)) + (8000 * Double.parseDouble(input3));
+                        result3 = result2 * 0.05;
+                        label2.setText(" " + result2);
+                        label3.setText(" " + (result2 - result3));
+                    } else if (r2.isChecked()) {
+                        result2 = (15000 * Double.parseDouble(input1)) + (12000 * Double.parseDouble(input2)) + (8000 * Double.parseDouble(input3));
+                        result3 = result2 * 0.1;
+                        label2.setText(" " + result2);
+                        label3.setText(" " + (result2 - result3));
+                    } else if (r3.isChecked()) {
+                        result2 = (15000 * Double.parseDouble(input1)) + (12000 * Double.parseDouble(input2)) + (8000 * Double.parseDouble(input3));
+                        result3 = result2 * 0.2;
+                        label2.setText(" " + result2);
+                        label3.setText(" " + (result2 - result3));
+                    }
+                }
+            }
+        });
+
+    }
 }
